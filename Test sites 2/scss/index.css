@@ -1,0 +1,206 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+/* fonts */
+@font-face {
+    font-family: "Joyride-Extended";
+    src: url("../fonts/Joyride-Extended.otf");
+}
+@font-face {
+    font-family: "Joyride-ExtendedOutline";
+    src: url("../fonts/Joyride-ExtendedOutline.otf");
+}
+
+/* Overlay */
+body>.overlay
+{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    z-index:999999999;
+    pointer-events:none}
+
+body>.overlay>div:not(.logo)
+{
+    width:20%;
+    background-color:#490452;
+    height:100%;
+    color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:4em;
+    
+    font-weight:bold}body>.overlay>div:not(.logo):nth-child(1)
+    {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 630ms}
+    body>.overlay>div:not(.logo):nth-child(2)
+    {
+        transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 560ms}
+        
+        body>.overlay>div:not(.logo):nth-child(3)
+        {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 490ms}
+        
+        body>.overlay>div:not(.logo):nth-child(4)
+        {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 420ms}
+        
+        body>.overlay>div:not(.logo):nth-child(5)
+        {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 350ms}
+        
+        body>.overlay>div:not(.logo):nth-child(6)
+        {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 280ms}
+        
+        body>.overlay>div:not(.logo):nth-child(7)
+        {transition:transform .7s cubic-bezier(0.86, 0, 0.07, 1) 210ms}
+        
+        body>.overlay.loaded>div:not(.logo){transform:translateY(-100%)}
+        
+        body>.overlay.loaded .logo{display:none}body>.overlay .logo
+        {
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+            align-items:center;
+            position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);
+            gap:30px}
+            
+            body>.overlay .logo .circle{margin-top:-10px;animation:starSpinning 2s infinite}
+            body>.overlay .logo .text{animation:fadeIn .8s}
+            body>.overlay .logo .text svg.text{overflow:visible}
+            body>.overlay .logo .text svg.text path:nth-child(1)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.1s}
+            body>.overlay .logo .text svg.text path:nth-child(2)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.2s}
+            body>.overlay .logo .text svg.text path:nth-child(3)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.3s}
+            body>.overlay .logo .text svg.text path:nth-child(4)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.4s}
+            body>.overlay .logo .text svg.text path:nth-child(5)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.5s}
+            body>.overlay .logo .text svg.text path:nth-child(6)
+            {animation:letterSlide .6s infinite alternate;animation-delay:0.6s}
+            
+            @keyframes fadeIn
+            {
+                0%{opacity:0}
+                75%{opacity:0}
+                100%{opacity:1}}
+            
+            @keyframes starSpinning
+            {
+                to{transform:rotate(360deg)}}
+            
+            @keyframes letterSlide
+            {
+                from{
+                transform:translateY(-20px);
+                opacity:.3}
+            }
+
+h2 {
+    
+    font-family: "Joyride-Extended";
+    font-size: 52px;
+    font-weight: 100;
+    color: #1d1c1c;
+}
+
+/* Style button */
+.btn{
+    padding:14px 40px;
+    border-radius:12px
+}
+
+.btn-filled{
+    background:linear-gradient(95.72deg, #E51A72 23.81%, #880a99 100%);
+    color:#fff;
+    margin-right:20px;box-shadow:rgba(0,0,0,.12) 30px 30px 30px
+}
+
+.btn-outline{
+    text-decoration:none;
+    color:var(--text-color);
+    font-weight:600;
+    font-size:14px;
+    border:.4px solid #991851;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    justify-content:center
+}
+
+.btn-outline .background{
+    background-color:#fff;
+    padding:14px 40px;
+    position:relative;
+    border-radius:12px;
+    width:100%
+}
+
+.btn-outline .background .text{
+    position:relative;
+    z-index:1000;transition:.5s;
+    color:#991851
+}
+
+.btn-outline .background .text i{margin-right:5px}
+
+.btn-outline .background .background-hover{
+    position:absolute;
+    width:200px;
+    height:200px;
+    top:50%;left:50%;
+    transform:translate(-50%, -50%) scale(0);
+    transition:all .6s cubic-bezier(0.73, 0.16, 0.07, 1.06);
+    background:linear-gradient(95.72deg, #E51A72 23.81%, #880a99 100%);
+    border-radius:50%;
+    transform-origin:center;z-index:1
+}
+
+.btn-outline:hover .background .text{color:#fff}
+
+.btn-outline:hover .background .background-hover{
+    transform:translate(-50%, -50%) scale(1);
+    transform-origin:center
+}
+
+@media(max-width: 600px){
+    .btn-filled{
+        margin-right:0;
+        margin-bottom:30px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        box-shadow:rgba(0,0,0,.1) 10px 10px 10px
+    }
+    .btn-outline .background{
+        display:flex;
+        justify-content:center
+    }
+    .btn-outline .background .background-hover{
+        width:600px;height:600px
+    }
+    .btn-outline:hover .background .text{color:#fff}
+    .btn-outline:hover .background .background-hover{
+        transform:translate(-50%, -50%) scale(1);
+        transform-origin:center}
+    }
+
+.button-container {
+    margin-top: 23px;
+    display: flex;
+    
+}
+a{  
+    font-family: "Poppins";
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.title {
+    padding: 20rem 15rem ;
+}
